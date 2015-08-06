@@ -11,7 +11,8 @@ public class minePickupSimple : MonoBehaviour {
 	
 
 	{
-		if ( other.gameObject.tag == "humanPlayerOne" || other.gameObject.tag == "humanPlayerTwo" ) {
+		if ( (other.gameObject.tag == "humanPlayerOne" || other.gameObject.tag == "humanPlayerTwo") 
+				&& other.gameObject.transform.parent == null ) {
 			other.gameObject.GetComponent<mainRunnerControls> ().hasMine = true;
 			DestroyObject(gameObject);
 		}
