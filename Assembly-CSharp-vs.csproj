@@ -51,11 +51,10 @@
      <Compile Include="Assets\Scripts\WalkAnimate.cs" />
      <Compile Include="Assets\Scripts\WorldInstantiate.cs" />
      <Compile Include="Assets\Scripts\ballerControls.cs" />
-     <Compile Include="Assets\Scripts\minePickup.cs" />
+     <Compile Include="Assets\Scripts\mainRunnerControls.cs" />
+     <Compile Include="Assets\Scripts\minePickupSimple.cs" />
      <Compile Include="Assets\Scripts\mineTrigger.cs" />
      <Compile Include="Assets\Scripts\rollCollect.cs" />
-     <Compile Include="Assets\Scripts\runnerOneControls.cs" />
-     <Compile Include="Assets\Scripts\runnerTwoControls.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
