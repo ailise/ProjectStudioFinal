@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Scripts\WalkAnimate.cs" />
+     <Compile Include="Assets\Scripts\WorldInstantiate.cs" />
      <Compile Include="Assets\Scripts\ballerControls.cs" />
      <Compile Include="Assets\Scripts\minePickup.cs" />
      <Compile Include="Assets\Scripts\mineTrigger.cs" />
