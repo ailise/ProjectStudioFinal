@@ -27,8 +27,8 @@ public class rollCollect : MonoBehaviour {
 
 	void FixedUpdate(){
 		// player input
-		float x = Input.GetAxis("Horizontal");
-		float y = Input.GetAxis("Vertical");
+		float x = Input.GetAxis("ballerHorizontal");
+		float y = Input.GetAxis("ballerVertical");
 
 		// add force to sphere
 		Rigidbody rbody = GetComponent<Rigidbody>();
