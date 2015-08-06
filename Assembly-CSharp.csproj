@@ -5,11 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-<<<<<<< HEAD
 	<ProjectGuid>{81995C9A-BD9D-9C4E-9B42-6AFFD2F4E6C3}</ProjectGuid>
-=======
-	<ProjectGuid>{47DA36CC-14A1-72FA-5026-5AA9E01306E1}</ProjectGuid>
->>>>>>> origin/master
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -54,11 +50,8 @@
      <Compile Include="Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Scripts\WalkAnimate.cs" />
      <Compile Include="Assets\Scripts\WorldInstantiate.cs" />
-<<<<<<< HEAD
-=======
      <Compile Include="Assets\Scripts\ballerControls.cs" />
      <Compile Include="Assets\Scripts\minePickup.cs" />
->>>>>>> origin/master
      <Compile Include="Assets\Scripts\mineTrigger.cs" />
      <Compile Include="Assets\Scripts\rollCollect.cs" />
      <Compile Include="Assets\Scripts\runnerOneControls.cs" />
