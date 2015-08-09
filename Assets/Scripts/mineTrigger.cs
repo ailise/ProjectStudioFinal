@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class mineTrigger : MonoBehaviour {
-	float upForce = 100f;
+	float upForce = 10f;
 
 	void OnTriggerEnter(Collider ball) {
 		// check if collider is ball

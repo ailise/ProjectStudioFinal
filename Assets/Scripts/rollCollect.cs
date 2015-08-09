@@ -53,10 +53,7 @@ public class rollCollect : MonoBehaviour {
 			}
 
 			// disable player controls if picked up
-			if(collision.gameObject.tag == "humanPlayerOne"){
-				collision.gameObject.GetComponent<mainRunnerControls>().enabled = false;
-			}
-			else if(collision.gameObject.tag == "humanPlayerTwo"){
+			if(collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo"){
 				collision.gameObject.GetComponent<mainRunnerControls>().enabled = false;
 			}
 		}
@@ -81,14 +78,7 @@ public class rollCollect : MonoBehaviour {
 				}
 
 				// reenable player controls if removing a player
-				if(child.tag == "humanPlayerOne"){
-					child.gameObject.GetComponent<mainRunnerControls>().enabled = true;
-					// upright player
-					child.transform.eulerAngles = new Vector3(0f, child.transform.eulerAngles.y, 0f);
-					// reapply rotation contraints
-					cRbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-				}
-				else if(child.tag == "humanPlayerTwo"){
+				if(child.tag == "humanPlayerOne" || child.tag == "humanPlayerTwo"){
 					child.gameObject.GetComponent<mainRunnerControls>().enabled = true;
 					// upright player
 					child.transform.eulerAngles = new Vector3(0f, child.transform.eulerAngles.y, 0f);
