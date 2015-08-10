@@ -11,13 +11,13 @@ public class humanScoreScript : MonoBehaviour
 	{
 	
 		text = GetComponent<Text> ();
-	
+		humanScore = 0;
 	}
 	// Use this for initialization
 	void Start ()
 	{
 	
-		humanScore = 0;
+//		humanScore = 0;
 //		UpdateScore ();
 	
 	}
@@ -28,7 +28,7 @@ public class humanScoreScript : MonoBehaviour
 	void Update ()
 	{
 		text.text = "Humans: " + humanScore;
-		Debug.Log (text);
+//		Debug.Log (text);
 		
 	}
 	

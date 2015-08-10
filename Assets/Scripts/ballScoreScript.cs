@@ -5,21 +5,31 @@ using UnityEngine.UI;
 public class ballScoreScript : MonoBehaviour
 {
 
-	// Use this for initialization
-	public float ballScore = 0;
-	public Text ballScoreText;
+	public static int ballScore;
 	
-	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		
-		ballScoreText.text = "Ball: " + ballScore.ToString ();
-		
+		text = GameObject.Find ("ballScore").GetComponent<Text> ();
+		ballScore = 0;
 	}
+	// Use this for initialization
+	
+	public Text text;
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		text.text = "Ball: " + ballScore;
+		//		Debug.Log (text);
+		
+	}
+	
+	public void ballScoreIncrease ()
+	{
+		
+		ballScore ++;
+		Debug.Log (ballScore);
 		
 	}
 }

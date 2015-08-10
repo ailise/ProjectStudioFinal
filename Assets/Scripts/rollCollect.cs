@@ -61,8 +61,16 @@ public class rollCollect : MonoBehaviour
 			if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
 				collision.gameObject.GetComponent<mainRunnerControls> ().enabled = false;
 			}
+			
+		}
+		//increments score for Ball player
+		if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
+			
+			collision.gameObject.GetComponent<ballScoreScript> ().ballScoreIncrease ();
 		}
 	}
+		
+	
 
 	// remove objects if hit mine
 	// this function is called from mineTrigger
