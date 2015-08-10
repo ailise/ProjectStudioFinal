@@ -27,6 +27,15 @@ public class TimerScript : MonoBehaviour
 	
 	void decreaseTimeRemaining ()
 	{
-		timeRemaining --;
+		if (timeRemaining > 0) {
+		
+			timeRemaining --;
+		
+		} else if (timeRemaining == 0) {
+		
+			Destroy (this.gameObject);
+		
+		}
+		
 	}
 }
