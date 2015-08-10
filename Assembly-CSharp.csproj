@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\ballerControls.cs" />
      <Compile Include="Assets\Scripts\humanScoreScript.cs" />
      <Compile Include="Assets\Scripts\mainRunnerControls.cs" />
+     <Compile Include="Assets\Scripts\minePickUpSpawner.cs" />
      <Compile Include="Assets\Scripts\minePickupSimple.cs" />
      <Compile Include="Assets\Scripts\mineTrigger.cs" />
      <Compile Include="Assets\Scripts\rollCollect.cs" />

@@ -7,10 +7,12 @@ public class rollCollect : MonoBehaviour
 	Bounds combinedBounds;	// bounds of player + objects collected
 	Component[] childRenderers;	// renderers in player children
 
+	GameObject text;	// reference ball score
+
 	// Use this for initialization
 	void Start ()
 	{
-	
+		text = GameObject.FindWithTag("ballScore");
 	}
 	
 	// Update is called once per frame
@@ -60,6 +62,7 @@ public class rollCollect : MonoBehaviour
 			// disable player controls if picked up
 			if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
 				collision.gameObject.GetComponent<mainRunnerControls> ().enabled = false;
+				text.GetComponent<ballScoreScript>().ballScoreIncrease();
 			}
 			
 		}

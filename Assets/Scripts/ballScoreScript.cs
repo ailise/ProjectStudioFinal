@@ -32,4 +32,8 @@ public class ballScoreScript : MonoBehaviour
 		Debug.Log (ballScore);
 		
 	}
+
+	public void ballScoreIncrease(){
+
+	}
 }
