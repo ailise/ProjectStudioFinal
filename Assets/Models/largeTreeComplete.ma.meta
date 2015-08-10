@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 60e7d2552a3d5e644a8e4d27e54cce73
+timeCreated: 1439229166
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: largeTree
+    100002: //RootNode
+    100004: largeTreeStem1
+    100006: largeTreeStem10
+    100008: largeTreeStem11
+    100010: largeTreeStem12
+    100012: largeTreeStem13
+    100014: largeTreeStem14
+    100016: largeTreeStem15
+    100018: largeTreeStem16
+    100020: largeTreeStem17
+    100022: largeTreeStem18
+    100024: largeTreeStem19
+    100026: largeTreeStem2
+    100028: largeTreeStem20
+    100030: largeTreeStem21
+    100032: largeTreeStem22
+    100034: largeTreeStem23
+    100036: largeTreeStem24
+    100038: largeTreeStem25
+    100040: largeTreeStem26
+    100042: largeTreeStem27
+    100044: largeTreeStem28
+    100046: largeTreeStem29
+    100048: largeTreeStem3
+    100050: largeTreeStem30
+    100052: largeTreeStem31
+    100054: largeTreeStem32
+    100056: largeTreeStem33
+    100058: largeTreeStem34
+    100060: largeTreeStem4
+    100062: largeTreeStem5
+    100064: largeTreeStem6
+    100066: largeTreeStem7
+    100068: largeTreeStem8
+    100070: largeTreeStem9
+    400000: largeTree
+    400002: //RootNode
+    400004: largeTreeStem1
+    400006: largeTreeStem10
+    400008: largeTreeStem11
+    400010: largeTreeStem12
+    400012: largeTreeStem13
+    400014: largeTreeStem14
+    400016: largeTreeStem15
+    400018: largeTreeStem16
+    400020: largeTreeStem17
+    400022: largeTreeStem18
+    400024: largeTreeStem19
+    400026: largeTreeStem2
+    400028: largeTreeStem20
+    400030: largeTreeStem21
+    400032: largeTreeStem22
+    400034: largeTreeStem23
+    400036: largeTreeStem24
+    400038: largeTreeStem25
+    400040: largeTreeStem26
+    400042: largeTreeStem27
+    400044: largeTreeStem28
+    400046: largeTreeStem29
+    400048: largeTreeStem3
+    400050: largeTreeStem30
+    400052: largeTreeStem31
+    400054: largeTreeStem32
+    400056: largeTreeStem33
+    400058: largeTreeStem34
+    400060: largeTreeStem4
+    400062: largeTreeStem5
+    400064: largeTreeStem6
+    400066: largeTreeStem7
+    400068: largeTreeStem8
+    400070: largeTreeStem9
+    2300000: largeTree
+    3300000: largeTree
+    4300000: largeTree
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
