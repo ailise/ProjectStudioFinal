@@ -22,4 +22,8 @@ public class ballScoreScript : MonoBehaviour
 	{
 		
 	}
+
+	public void ballScoreIncrease(){
+
+	}
 }
