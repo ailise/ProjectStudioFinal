@@ -59,7 +59,7 @@ public class mainRunnerControls : MonoBehaviour {
 			GameObject placemine;
 			placemine = (GameObject)Instantiate( mine, 
 			                                    new Vector3 (runner.transform.localPosition.x,
-			             									runner.transform.localPosition.y * .3f,
+			             									0f,
 			             									runner.transform.localPosition.z),
 			                                    Quaternion.Euler ( 0f, 0f, 0f ));
 			hasMine = false;
@@ -72,7 +72,7 @@ public class mainRunnerControls : MonoBehaviour {
 		if (Input.GetKeyDown (mineButtonPlayerTwo )&& hasMine == true ) {
 			GameObject placemine;
 			placemine = (GameObject)Instantiate( mine, 
-			                                    new Vector3 (runner.transform.localPosition.x, runner.transform.localPosition.y * .3f, runner.transform.localPosition.z),
+			                                    new Vector3 (runner.transform.localPosition.x, 0f, runner.transform.localPosition.z),
 			                                    Quaternion.Euler ( 0f, 0f, 0f ));
 			hasMine = false;
 			
