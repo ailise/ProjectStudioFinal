@@ -34,7 +34,15 @@ public class TimerScript : MonoBehaviour
 		} else if (timeRemaining == 0) {
 		
 			Destroy (this.gameObject);
+			
 		
+		}
+		
+		if (timeRemaining == 0) {
+		
+			GameObject gameOverScreen = Instantiate (Resources.Load ("gameOverScreen")) as GameObject;
+			gameOverScreen.transform.SetParent (GameObject.FindGameObjectWithTag ("gameOverCanvas").transform, false);
+			Debug.Log ("I did a thing!");
 		}
 		
 	}

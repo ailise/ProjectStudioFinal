@@ -10,7 +10,7 @@ public class ballScoreScript : MonoBehaviour
 	void Awake ()
 	{
 		
-		text = GameObject.Find ("ballScore").GetComponent<Text> ();
+		text = GetComponent<Text> ();
 		ballScore = 0;
 	}
 	// Use this for initialization
@@ -33,7 +33,7 @@ public class ballScoreScript : MonoBehaviour
 		
 	}
 
-	public void ballScoreIncrease(){
-
-	}
+//	public void ballScoreIncrease(){
+//
+//	}
 }

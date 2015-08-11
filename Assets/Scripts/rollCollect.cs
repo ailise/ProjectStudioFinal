@@ -12,7 +12,7 @@ public class rollCollect : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		text = GameObject.FindWithTag("ballScore");
+		text = GameObject.FindWithTag ("ballScore");
 	}
 	
 	// Update is called once per frame
@@ -62,15 +62,15 @@ public class rollCollect : MonoBehaviour
 			// disable player controls if picked up
 			if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
 				collision.gameObject.GetComponent<mainRunnerControls> ().enabled = false;
-				text.GetComponent<ballScoreScript>().ballScoreIncrease();
+				text.GetComponent<ballScoreScript> ().ballScoreIncrease ();
 			}
 			
 		}
 		//increments score for Ball player
-		if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
-			
-			collision.gameObject.GetComponent<ballScoreScript> ().ballScoreIncrease ();
-		}
+//		if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
+//			
+//			collision.gameObject.GetComponent<ballScoreScript> ().ballScoreIncrease ();
+//		}
 	}
 		
 	
