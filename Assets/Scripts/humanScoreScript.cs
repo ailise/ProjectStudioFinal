@@ -13,14 +13,6 @@ public class humanScoreScript : MonoBehaviour
 		text = GetComponent<Text> ();
 		humanScore = 0;
 	}
-	// Use this for initialization
-	void Start ()
-	{
-	
-//		humanScore = 0;
-//		UpdateScore ();
-	
-	}
 	
 	public Text text;
 	
@@ -37,6 +29,13 @@ public class humanScoreScript : MonoBehaviour
 	
 		humanScore ++;
 		Debug.Log (humanScore);
+	
+	}
+	
+	public void humanScorePrint ()
+	{
+	
+		humanScore.ToString ();
 	
 	}
 	
