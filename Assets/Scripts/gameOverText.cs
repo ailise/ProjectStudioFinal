@@ -8,6 +8,8 @@ public class gameOverText : MonoBehaviour
 	GameObject humanScore;
 	GameObject ballScore;
 
+	public Text timer;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -28,9 +30,9 @@ public class gameOverText : MonoBehaviour
 	void restartGame ()
 	{
 	
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && timer.GetComponent<TimerScript>().end == true) {
 			
-			Application.LoadLevel ("mainGroupPrototype");
+			Application.LoadLevel ("mainGroupPrototype");	// this is crashing the game
 			
 		}
 	
