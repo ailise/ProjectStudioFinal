@@ -9,10 +9,28 @@ public class rollCollect : MonoBehaviour
 
 	GameObject text;	// reference ball score
 
+	// roll sounds
+	AudioSource[] rollSounds;
+	AudioSource light;
+	AudioSource medium;
+	AudioSource large;
+
+	AudioSource currSound;
+
+	float waitTime; // time inbetween sound play
+	float lastCheck;
+
 	// Use this for initialization
 	void Start ()
 	{
 		text = GameObject.FindWithTag ("ballScore");
+		rollSounds = GetComponents<AudioSource>();	// get array of audio sources on object
+		large = rollSounds[0];
+		medium = rollSounds[1];
+		light = rollSounds[2];
+
+		lastCheck = 0f;
+		waitTime = 1f;
 	}
 	
 	// Update is called once per frame
@@ -27,6 +45,19 @@ public class rollCollect : MonoBehaviour
 			}
 		}
 
+		currSound = chooseSound();
+
+		// play sounds
+		if(Input.GetAxis("ballerHorizontal") != 0 || Input.GetAxis("ballerVertical") != 0){
+			if(!currSound.isPlaying && Time.time - lastCheck > waitTime){
+				lastCheck = Time.time;
+				currSound.Play();
+			}
+		}
+		else{
+			currSound.Stop();
+		}
+
 		//Debug.Log(combinedBounds.size);
 	}
 
@@ -39,6 +70,8 @@ public class rollCollect : MonoBehaviour
 		// add force to sphere
 		Rigidbody rbody = GetComponent<Rigidbody> ();
 		rbody.AddForce (x * speed * Time.deltaTime, 0f, y * speed * Time.deltaTime, ForceMode.VelocityChange);
+		waitTime = Mathf.Lerp(2f, 0.8f, rbody.velocity.magnitude);
+		//Debug.Log(waitTime);
 	}
 
 	void OnCollisionEnter (Collision collision)
@@ -62,15 +95,10 @@ public class rollCollect : MonoBehaviour
 			// disable player controls if picked up
 			if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
 				collision.gameObject.GetComponent<mainRunnerControls> ().enabled = false;
-				text.GetComponent<ballScoreScript> ().ballScoreIncrease ();
+				text.GetComponent<ballScoreScript> ().ballScoreIncrease (); //increments score for Ball player
 			}
 			
 		}
-		//increments score for Ball player
-//		if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
-//			
-//			collision.gameObject.GetComponent<ballScoreScript> ().ballScoreIncrease ();
-//		}
 	}
 		
 	
@@ -105,6 +133,34 @@ public class rollCollect : MonoBehaviour
 				numObjsRemove--;
 				
 			}
+		}
+	}
+
+	// helper function to choose which sound to play depending on size of ball
+	AudioSource chooseSound(){
+		if(transform.childCount <= 8){
+			if(medium.isPlaying){
+				medium.Stop();
+			}else if(large.isPlaying){
+				large.Stop();
+			}
+			return light;
+		}
+		else if(transform.childCount <= 15){
+			if(light.isPlaying){
+				light.Stop();
+			}else if(large.isPlaying){
+				large.Stop();
+			}
+			return medium;
+		}
+		else{
+			if(medium.isPlaying){
+				medium.Stop();
+			}else if(light.isPlaying){
+				light.Stop();
+			}
+			return large;
 		}
 	}
 

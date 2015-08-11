@@ -12,7 +12,7 @@ public class TimerScript : MonoBehaviour
 	{
 		InvokeRepeating ("decreaseTimeRemaining", 1.0f, 1.0f);
 		
-		BroadcastMessage ("Start Timer", timeRemaining);
+	//	BroadcastMessage ("Start Timer", timeRemaining);
 	}
 	
 	void Update ()
@@ -43,6 +43,8 @@ public class TimerScript : MonoBehaviour
 			GameObject gameOverScreen = Instantiate (Resources.Load ("gameOverScreen")) as GameObject;
 			gameOverScreen.transform.SetParent (GameObject.FindGameObjectWithTag ("gameOverCanvas").transform, false);
 			Debug.Log ("I did a thing!");
+
+			Time.timeScale = 0f;	// pause game
 		}
 		
 	}
