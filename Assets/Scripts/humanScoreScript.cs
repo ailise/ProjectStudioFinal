@@ -32,10 +32,11 @@ public class humanScoreScript : MonoBehaviour
 	
 	}
 	
-	public void humanScorePrint ()
+	public string humanScorePrint ()
 	{
 	
-		humanScore.ToString ();
+		Debug.Log ("Butts?");
+		return humanScore.ToString ();
 	
 	}
 	
