@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class gameOverText : MonoBehaviour
 {
 	public Text text;
-	GameObject humanScore;
-	GameObject ballScore;
+
+	public Text timer;
 
 	// Use this for initialization
 	void Start ()
@@ -19,18 +19,32 @@ public class gameOverText : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		humanScoreScript humanScoreScript = GetComponent<humanScoreScript> ();
+		ballScoreScript ballScoreScript = GetComponent<ballScoreScript> ();
+//		humanScoreResult = GetComponent<humanScoreScript> ().humanScorePrint ();
+		if (humanScoreScript.humanScore > ballScoreScript.ballScore) {
+		
+			text.text = "Human Players Win!";
 	
-		text.text = "Time's Up!\nPress 'R' to \nRestart!" + humanScore;
+		} else {
+		
+			text.text = "Ball Player Wins!";
+		
+		}
+//		text.text = "Humans: " + humanScoreScript.humanScore;
+//		text.text = "Test";
+		Debug.Log (text.text);
 		restartGame ();
+		
 	
 	}
 	
 	void restartGame ()
 	{
 	
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && timer.GetComponent<TimerScript> ().end == true) {
 			
-			Application.LoadLevel ("mainGroupPrototype");
+			Application.LoadLevel ("mainGroupPrototype");	// this is crashing the game
 			
 		}
 	
