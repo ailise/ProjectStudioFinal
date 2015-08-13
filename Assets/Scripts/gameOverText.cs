@@ -24,9 +24,17 @@ public class gameOverText : MonoBehaviour
 		
 			text.text = "Human Players Win!";
 	
-		} else {
+		} 
+		
+		if (humanScoreScript.humanScore < ballScoreScript.ballScore) {
 		
 			text.text = "Ball Player Wins!";
+		
+		}
+		
+		if (humanScoreScript.humanScore == ballScoreScript.ballScore) {
+		
+			text.text = "It's a Tie!";
 		
 		}
 

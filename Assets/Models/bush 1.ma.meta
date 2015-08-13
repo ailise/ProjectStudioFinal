@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 00ebb058bf207e3498a1f8d94da5dcd3
-timeCreated: 1439311917
+guid: 46a681e54c60f4cc5b737b3748e99095
+timeCreated: 1439435335
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pSphere1
+    4300000: pSphere2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -20,10 +20,6 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
-    animationImportWarnings: 
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
