@@ -12,7 +12,6 @@ public class gameOverText : MonoBehaviour
 	void Start ()
 	{
 		text = GetComponent<Text> ();
-//		humanScore = GetComponent<humanScoreScript> ().humanScorePrint ();
 	}
 	
 	
@@ -21,7 +20,6 @@ public class gameOverText : MonoBehaviour
 	{
 		humanScoreScript humanScoreScript = GetComponent<humanScoreScript> ();
 		ballScoreScript ballScoreScript = GetComponent<ballScoreScript> ();
-//		humanScoreResult = GetComponent<humanScoreScript> ().humanScorePrint ();
 		if (humanScoreScript.humanScore > ballScoreScript.ballScore) {
 		
 			text.text = "Human Players Win!";
@@ -31,9 +29,8 @@ public class gameOverText : MonoBehaviour
 			text.text = "Ball Player Wins!";
 		
 		}
-//		text.text = "Humans: " + humanScoreScript.humanScore;
-//		text.text = "Test";
-		Debug.Log (text.text);
+
+//		Debug.Log (text.text);
 		restartGame ();
 		
 	

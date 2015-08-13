@@ -53,12 +53,14 @@
      <Compile Include="Assets\Scripts\WorldInstantiate.cs" />
      <Compile Include="Assets\Scripts\ballScoreScript.cs" />
      <Compile Include="Assets\Scripts\ballerControls.cs" />
+     <Compile Include="Assets\Scripts\controlsButton.cs" />
      <Compile Include="Assets\Scripts\gameOverText.cs" />
      <Compile Include="Assets\Scripts\humanScoreScript.cs" />
      <Compile Include="Assets\Scripts\mainRunnerControls.cs" />
      <Compile Include="Assets\Scripts\minePickUpSpawner.cs" />
      <Compile Include="Assets\Scripts\minePickupSimple.cs" />
      <Compile Include="Assets\Scripts\mineTrigger.cs" />
+     <Compile Include="Assets\Scripts\playButton.cs" />
      <Compile Include="Assets\Scripts\rollCollect.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
