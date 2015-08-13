@@ -49,8 +49,8 @@ public class gameOverText : MonoBehaviour
 	
 		if (Input.GetKeyDown (KeyCode.R) && timer.GetComponent<TimerScript> ().end == true) {
 			
-			Application.LoadLevel ("mainGroupPrototype");	// this is crashing the game
-			
+			Time.timeScale = 1f;
+			Application.LoadLevel ("mainGroupPrototype");
 		}
 	
 	}
