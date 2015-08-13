@@ -14,7 +14,7 @@ public class NPC : MonoBehaviour {
 	}
 
 	void PickRandomDestination () {
-		destination = new Vector3 (Random.Range (-40f, 40f), 0f, Random.Range (-40f, 40f));
+		destination = new Vector3 (Random.Range (30f, 105f), 0f, Random.Range (-10f, 65f));
 	}
 
 

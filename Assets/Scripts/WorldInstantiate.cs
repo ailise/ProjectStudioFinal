@@ -17,6 +17,8 @@ public class WorldInstantiate : MonoBehaviour {
 	public Transform minePickUpSpawner;
 	public Color[] groundColors;
 
+	bool lightRight;
+
 	public int numSpiders;	// number spiders spawned per grid
 
 	void Start(){
@@ -61,19 +63,28 @@ public class WorldInstantiate : MonoBehaviour {
 						if(i == 3 && j == 3){
 							Instantiate(minePickUpSpawner, pos + new Vector3(0f, 2f, 0f), transform.rotation);
 						}
-						// instantiate AI people
 					}
 					else{
 						float rand = Random.Range(0f,1f);	// type of area
 						float rand2 = Random.Range(0f,1f);	// options for type of area
 
-						if(rand < 0.85f){	// grassy terrain
+						if(i == 2){
+							int numObjs = Random.Range(0, 3);
+							lightRight = true;
+							placePrefabs(lightPrefab, pos, numObjs);
+						}
+						else if(i == 0){
+							int numObjs = Random.Range(0, 3);
+							lightRight = false;
+							placePrefabs(lightPrefab, pos, numObjs);
+						}
+						if(rand < 0.8f){	// grassy terrain
 							if(rand2 < 0.4){	// a lot of bushes
-								int numObjs = Random.Range(2,5);
+								int numObjs = Random.Range(2,6);
 								placePrefabs(bushPrefab, pos, numObjs);
 							}
 							else if(rand2 < 0.7){	// balance of bush, small trees and large trees
-								int numObjs = Random.Range(1, 3);
+								int numObjs = Random.Range(1, 4);
 								placePrefabs(bushPrefab, pos, numObjs);
 								numObjs = Random.Range(1, 3);
 								placePrefabs(sTreePrefab, pos, numObjs);
@@ -92,8 +103,6 @@ public class WorldInstantiate : MonoBehaviour {
 								// building with hyrant and light
 							placePrefabs(buildingPrefab, pos, 1);
 							placePrefabs(hydrantPrefab, pos, 1);
-							int numObjs = Random.Range(0, 3);
-							placePrefabs(lightPrefab, pos, numObjs);
 							newClone.GetComponent<Renderer>().material.color = groundColors[2];
 						}	
 					}
@@ -115,25 +124,26 @@ public class WorldInstantiate : MonoBehaviour {
 					rot.eulerAngles = new Vector3(0f, 90f, 0f);
 				}
 			}
-			else if(obj == hydrantPrefab){	// place hyrant along east/west sides of square
+			else if(obj == hydrantPrefab){	// place hyrant along north/south sides of square
 				float rand = Random.Range(0f,1f);
-				if(rand < 0.5f){
-					pos = new Vector3(-2f, 1f, Random.Range(-2f, 2f)) + currPos;
+				if(rand < 0.5){
+					pos = new Vector3(Random.Range(-2f, 2f), 1f, -2f) + currPos;
+					
 				}else{
-					pos = new Vector3(2f, 1f, Random.Range(-2f, 2f)) + currPos;
+					pos = new Vector3(Random.Range(-2f, 2f), 1f, 2f) + currPos;
+					
 				}
 				rot.eulerAngles = new Vector3(0f, Random.Range(0f,365f), 0f);
 			}
-			else if(obj == lightPrefab){	// place light post along north/south sides of square
-				float rand = Random.Range(0f,1f);
-				if(rand < 0.5f){
-					pos = new Vector3(Random.Range(-2f, 2f), 1f, -2f) + currPos;
-					rot.eulerAngles = new Vector3(0f, 90f, 0f);
+			else if(obj == lightPrefab){	// place light post along east/west sides of square
+			//	float rand = Random.Range(0f,1f);
+				if(!lightRight){
+					pos = new Vector3(-2f, 1f, Random.Range(-2f, 2f)) + currPos;
+					rot.eulerAngles = new Vector3(0f, 180f, 0f);
 				}else{
-					pos = new Vector3(Random.Range(-2f, 2f), 1f, 2f) + currPos;
-					rot.eulerAngles = new Vector3(0f, -90f, 0f);
+					pos = new Vector3(2f, 1f, Random.Range(-2f, 2f)) + currPos;
+					rot.eulerAngles = new Vector3(0f, 0f, 0f);
 				}
-				
 			}
 			else{	// other object positions randomly in square
 				pos = new Vector3(Random.Range (-2f, 2f), 1f, Random.Range(-2f, 2f)) + currPos;

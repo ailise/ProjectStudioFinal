@@ -54,6 +54,7 @@ public class rollCollect : MonoBehaviour
 			medium.Stop();
 		}
 
+		// change pitch of rolling sound depending on number of children
 		if(transform.childCount >= 0){
 			medium.pitch = 1f;
 		}else if(transform.childCount > 2){
