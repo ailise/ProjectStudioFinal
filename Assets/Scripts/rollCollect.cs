@@ -3,7 +3,7 @@ using System.Collections;
 
 public class rollCollect : MonoBehaviour
 {
-	public float speed = 20f;
+	public float speed = 15f;
 	Bounds combinedBounds;	// bounds of player + objects collected
 	Component[] childRenderers;	// renderers in player children
 
@@ -14,8 +14,6 @@ public class rollCollect : MonoBehaviour
 	AudioSource light;
 	AudioSource medium;
 	AudioSource large;
-
-	AudioSource currSound;
 
 	float waitTime; // time inbetween sound play
 	float lastCheck;
@@ -45,17 +43,28 @@ public class rollCollect : MonoBehaviour
 			}
 		}
 
-		currSound = chooseSound();
-
 		// play sounds
 		if(Input.GetAxis("ballerHorizontal") != 0 || Input.GetAxis("ballerVertical") != 0){
-			if(!currSound.isPlaying && Time.time - lastCheck > waitTime){
+			if(!medium.isPlaying && Time.time - lastCheck > waitTime){
 				lastCheck = Time.time;
-				currSound.Play();
+				medium.Play();
 			}
 		}
 		else{
-			currSound.Stop();
+			medium.Stop();
+		}
+
+		// change pitch of rolling sound depending on number of children
+		if(transform.childCount >= 0){
+			medium.pitch = 1f;
+		}else if(transform.childCount > 2){
+			medium.pitch = 0.8f;
+		}else if(transform.childCount > 5){
+			medium.pitch = 0.6f;
+		}else if(transform.childCount > 10){
+			medium.pitch = 0.4f;
+		}else{
+			medium.pitch = 0.2f;
 		}
 
 		//Debug.Log(combinedBounds.size);
@@ -80,7 +89,7 @@ public class rollCollect : MonoBehaviour
 		// if object's size is less than half of current player size
 		// if min and max points of bound box are in player bound box
 		if ((collision.gameObject.tag == "objects" 
-			|| collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo")
+			|| collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo" || collision.gameObject.tag == "npc")
 			&& collision.gameObject.GetComponent<Renderer> ().bounds.size.sqrMagnitude < combinedBounds.extents.sqrMagnitude
 			&& combinedBounds.Contains (collision.gameObject.GetComponent<Renderer> ().bounds.max)
 			&& combinedBounds.Contains (collision.gameObject.GetComponent<Renderer> ().bounds.min)) {
@@ -96,6 +105,13 @@ public class rollCollect : MonoBehaviour
 			if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
 				collision.gameObject.GetComponent<mainRunnerControls> ().enabled = false;
 				text.GetComponent<ballScoreScript> ().ballScoreIncrease (); //increments score for Ball player
+				large.Play();
+			}else if(collision.gameObject.tag == "npc"){
+				collision.gameObject.GetComponent<NPC> ().enabled = false;
+				light.Play();
+			}
+			else{
+				light.Play();	// play pickup sound
 			}
 			
 		}
@@ -129,6 +145,12 @@ public class rollCollect : MonoBehaviour
 					child.transform.eulerAngles = new Vector3 (0f, child.transform.eulerAngles.y, 0f);
 					// reapply rotation contraints
 					cRbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+				}else if(child.tag == "npc"){	// renable movement if npc
+					child.gameObject.GetComponent<NPC> ().enabled = true;
+					// upright player
+					child.transform.eulerAngles = new Vector3 (0f, child.transform.eulerAngles.y, 0f);
+					// reapply rotation contraints
+					cRbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 				}
 				numObjsRemove--;
 				
@@ -138,18 +160,8 @@ public class rollCollect : MonoBehaviour
 
 	// helper function to choose which sound to play depending on size of ball
 	AudioSource chooseSound(){
-		if(transform.childCount <= 8){
-			if(medium.isPlaying){
-				medium.Stop();
-			}else if(large.isPlaying){
-				large.Stop();
-			}
-			return light;
-		}
-		else if(transform.childCount <= 15){
-			if(light.isPlaying){
-				light.Stop();
-			}else if(large.isPlaying){
+		if(transform.childCount <= 10){
+			if(large.isPlaying){
 				large.Stop();
 			}
 			return medium;
@@ -157,8 +169,6 @@ public class rollCollect : MonoBehaviour
 		else{
 			if(medium.isPlaying){
 				medium.Stop();
-			}else if(light.isPlaying){
-				light.Stop();
 			}
 			return large;
 		}
