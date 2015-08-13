@@ -18,7 +18,7 @@ public class mainRunnerControls : MonoBehaviour {
 	public KeyCode mineButtonPlayerTwo; //Only assign in the inspector for runnerTwo
 	
 
-
+	public GameObject explosionParticle;
 
 	public float speed = 500f;
 	//Used Speed + Drag
@@ -50,9 +50,9 @@ public class mainRunnerControls : MonoBehaviour {
 		//Implementing the controls
 
 		//Left + Right
-		rbody.AddRelativeForce (runnerX, 0f , 0f);
+		rbody.AddForce (runnerX, 0f , 0f);
 		//Up + Down
-		rbody.AddRelativeForce (0f, 0f, runnerZ);
+		rbody.AddForce (0f, 0f, runnerZ);
 	
 		//Mine placement, sets a mine if the player has one.
 		if (Input.GetKeyDown (mineButtonPlayerOne )&& hasMine == true ) {
@@ -63,6 +63,11 @@ public class mainRunnerControls : MonoBehaviour {
 			             									runner.transform.localPosition.z),
 			                                    Quaternion.Euler ( 0f, 0f, 0f ));
 			hasMine = false;
+
+			placemine.GetComponent<mineTrigger>().explosion = (GameObject) Instantiate(explosionParticle, new Vector3 (runner.transform.localPosition.x,
+			        		0f,
+			             	runner.transform.localPosition.z),
+			                Quaternion.Euler ( 0f, 0f, 0f ));
 
 			//Debug log, for coding purposed
 			Debug.Log ("Placed Mine");
@@ -75,7 +80,10 @@ public class mainRunnerControls : MonoBehaviour {
 			                                    new Vector3 (runner.transform.localPosition.x, 0f, runner.transform.localPosition.z),
 			                                    Quaternion.Euler ( 0f, 0f, 0f ));
 			hasMine = false;
-			
+			placemine.GetComponent<mineTrigger>().explosion = (GameObject) Instantiate(explosionParticle, new Vector3 (runner.transform.localPosition.x,
+			        		0f,
+			             	runner.transform.localPosition.z),
+			                Quaternion.Euler ( 0f, 0f, 0f ));
 			//Debug log, for coding purposed
 			Debug.Log ("Placed Mine");
 			

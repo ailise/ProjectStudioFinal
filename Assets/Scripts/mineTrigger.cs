@@ -7,6 +7,7 @@ public class mineTrigger : MonoBehaviour
 	GameObject text;	// reference human score
 	float destroyTimer = 10f;
 
+	public GameObject explosion;	// referenced in mainRunnerControls
 
 	void Start(){
 
@@ -35,7 +36,7 @@ public class mineTrigger : MonoBehaviour
 			GameObject.FindWithTag("explosionAudio").GetComponent<AudioSource>().Play();
 
 
-			//GameObject.FindWithTag("explosionSystem").GetComponent<ParticleSystem>().Play (); //new explosion system, gives null pointer
+			explosion.GetComponent<ParticleSystem>().Play (); //new explosion system, gives null pointer
 		
 			Destroy (this.gameObject);	// remove self
 			
@@ -48,7 +49,7 @@ public class mineTrigger : MonoBehaviour
 			text.GetComponent<humanScoreScript> ().humanScoreIncrease ();
 			GameObject.FindWithTag("explosionAudio").GetComponent<AudioSource>().Play();
 
-			//GameObject.FindWithTag("explosionSystem").GetComponent<ParticleSystem>().Play (); //new explosion system attempt, gives null pointer
+			explosion.GetComponent<ParticleSystem>().Play (); //new explosion system attempt, gives null pointer
 
 			Destroy (this.gameObject);	// remove self
 		}
