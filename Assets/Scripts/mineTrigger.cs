@@ -5,9 +5,23 @@ public class mineTrigger : MonoBehaviour
 {
 	float upForce = 10f;
 	GameObject text;	// reference human score
+	float destroyTimer = 10f;
+
 
 	void Start(){
+
+
 		text = GameObject.FindWithTag("humanScore");
+		StartCoroutine ( mineDeathTimer () );
+	}
+
+	IEnumerator mineDeathTimer () {
+		Debug.Log ("Started death time");
+		yield return new WaitForSeconds (10);
+		Destroy (this.gameObject);
+		Debug.Log ("Destroyed self, 10 seconds up");
+		GameObject.FindWithTag("mineTimedOut").GetComponent<AudioSource>().Play ();
+
 	}
 
 	void OnTriggerEnter (Collider ball)
@@ -20,6 +34,9 @@ public class mineTrigger : MonoBehaviour
 			text.GetComponent<humanScoreScript> ().humanScoreIncrease ();
 			GameObject.FindWithTag("explosionAudio").GetComponent<AudioSource>().Play();
 
+
+			//GameObject.FindWithTag("explosionSystem").GetComponent<ParticleSystem>().Play (); //new explosion system, gives null pointer
+		
 			Destroy (this.gameObject);	// remove self
 			
 		} else if ((ball.gameObject.tag == "objects" || ball.gameObject.tag == "humanPlayerOne" || ball.gameObject.tag == "humanPlayerTwo")
@@ -30,6 +47,8 @@ public class mineTrigger : MonoBehaviour
 			ball.gameObject.transform.parent.GetComponent<rollCollect>().removeObjects ();
 			text.GetComponent<humanScoreScript> ().humanScoreIncrease ();
 			GameObject.FindWithTag("explosionAudio").GetComponent<AudioSource>().Play();
+
+			//GameObject.FindWithTag("explosionSystem").GetComponent<ParticleSystem>().Play (); //new explosion system attempt, gives null pointer
 
 			Destroy (this.gameObject);	// remove self
 		}
