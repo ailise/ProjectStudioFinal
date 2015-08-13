@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -22,7 +22,7 @@ public class gameOverText : MonoBehaviour
 		ballScoreScript ballScoreScript = GetComponent<ballScoreScript> ();
 		if (humanScoreScript.humanScore > ballScoreScript.ballScore) {
 		
-			text.text = "Human Players Win!";
+			text.text = "Human Players Win!\nPress 'R' to Restart!";
 	
 		} 
 		
@@ -34,7 +34,7 @@ public class gameOverText : MonoBehaviour
 		
 		if (humanScoreScript.humanScore == ballScoreScript.ballScore) {
 		
-			text.text = "It's a Tie!";
+			text.text = "It's a Tie!\nPress 'R' to Restart!";
 		
 		}
 
@@ -49,8 +49,8 @@ public class gameOverText : MonoBehaviour
 	
 		if (Input.GetKeyDown (KeyCode.R) && timer.GetComponent<TimerScript> ().end == true) {
 			
-			Time.timeScale = 1f;
-			Application.LoadLevel ("mainGroupPrototype");
+			Application.LoadLevel ("mainGroupPrototype");	// this is crashing the game
+			
 		}
 	
 	}
