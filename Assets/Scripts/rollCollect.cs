@@ -18,6 +18,8 @@ public class rollCollect : MonoBehaviour
 	float waitTime; // time inbetween sound play
 	float lastCheck;
 
+	public int fractionRemove = 2;	// denominator of fraction of objects removed when ball hits mine
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -126,7 +128,7 @@ public class rollCollect : MonoBehaviour
 		//	Debug.Log("boom");
 		if (transform.childCount > 0) {	// only do stuff if there are children
 
-			int numObjsRemove = transform.childCount / 3; // remove 1/3 of children (tune this value)
+			int numObjsRemove = transform.childCount / fractionRemove; // remove 1/fractionRemove of children (tune this value)
 			// unparent last child numObjsRemove times
 			while (numObjsRemove >= 0) {
 				Transform child = transform.GetChild (transform.childCount - 1);
