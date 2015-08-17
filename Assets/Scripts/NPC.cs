@@ -10,7 +10,7 @@ public class NPC : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("PickRandomDestination", 0f, 0.3f);
+		InvokeRepeating ("PickRandomDestination", 0f, 2f);
 	}
 
 	void PickRandomDestination () {
