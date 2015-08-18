@@ -24,10 +24,10 @@ public class rollCollect : MonoBehaviour
 	void Start ()
 	{
 		text = GameObject.FindWithTag ("ballScore");
-		rollSounds = GetComponents<AudioSource>();	// get array of audio sources on object
-		large = rollSounds[0];
-		medium = rollSounds[1];
-		light = rollSounds[2];
+		rollSounds = GetComponents<AudioSource> ();	// get array of audio sources on object
+		large = rollSounds [0];
+		medium = rollSounds [1];
+		light = rollSounds [2];
 
 		lastCheck = 0f;
 		waitTime = 1f;
@@ -36,6 +36,9 @@ public class rollCollect : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+	
+		gameOverText gameOverText = GetComponent<gameOverText> ();
+		
 		combinedBounds = GetComponent<Renderer> ().bounds;
 
 		if (transform.childCount > 0) {	
@@ -46,26 +49,25 @@ public class rollCollect : MonoBehaviour
 		}
 
 		// play sounds
-		if(Input.GetAxis("ballerHorizontal") != 0 || Input.GetAxis("ballerVertical") != 0){
-			if(!medium.isPlaying && Time.time - lastCheck > waitTime){
+		if (Input.GetAxis ("ballerHorizontal") != 0 || Input.GetAxis ("ballerVertical") != 0) {
+			if (!medium.isPlaying && Time.time - lastCheck > waitTime) {
 				lastCheck = Time.time;
-				medium.Play();
+				medium.Play ();
 			}
-		}
-		else{
-			medium.Stop();
+		} else {
+			medium.Stop ();
 		}
 
 		// change pitch of rolling sound depending on number of children
-		if(transform.childCount >= 0){
+		if (transform.childCount >= 0) {
 			medium.pitch = 1f;
-		}else if(transform.childCount > 2){
+		} else if (transform.childCount > 2) {
 			medium.pitch = 0.8f;
-		}else if(transform.childCount > 5){
+		} else if (transform.childCount > 5) {
 			medium.pitch = 0.6f;
-		}else if(transform.childCount > 10){
+		} else if (transform.childCount > 10) {
 			medium.pitch = 0.4f;
-		}else{
+		} else {
 			medium.pitch = 0.2f;
 		}
 
@@ -81,7 +83,7 @@ public class rollCollect : MonoBehaviour
 		// add force to sphere
 		Rigidbody rbody = GetComponent<Rigidbody> ();
 		rbody.AddForce (x * speed * Time.deltaTime, 0f, y * speed * Time.deltaTime, ForceMode.VelocityChange);
-		waitTime = Mathf.Lerp(2f, 0.8f, rbody.velocity.magnitude);
+		waitTime = Mathf.Lerp (2f, 0.8f, rbody.velocity.magnitude);
 		//Debug.Log(waitTime);
 	}
 
@@ -107,13 +109,12 @@ public class rollCollect : MonoBehaviour
 			if (collision.gameObject.tag == "humanPlayerOne" || collision.gameObject.tag == "humanPlayerTwo") {
 				collision.gameObject.GetComponent<mainRunnerControls> ().enabled = false;
 				text.GetComponent<ballScoreScript> ().ballScoreIncrease (); //increments score for Ball player
-				large.Play();
-			}else if(collision.gameObject.tag == "npc"){
+				large.Play ();
+			} else if (collision.gameObject.tag == "npc") {
 				collision.gameObject.GetComponent<NPC> ().enabled = false;
-				light.Play();
-			}
-			else{
-				light.Play();	// play pickup sound
+				light.Play ();
+			} else {
+				light.Play ();	// play pickup sound
 			}
 			
 		}
@@ -147,7 +148,7 @@ public class rollCollect : MonoBehaviour
 					child.transform.eulerAngles = new Vector3 (0f, child.transform.eulerAngles.y, 0f);
 					// reapply rotation contraints
 					cRbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-				}else if(child.tag == "npc"){	// renable movement if npc
+				} else if (child.tag == "npc") {	// renable movement if npc
 					child.gameObject.GetComponent<NPC> ().enabled = true;
 					// upright player
 					child.transform.eulerAngles = new Vector3 (0f, child.transform.eulerAngles.y, 0f);
@@ -161,16 +162,16 @@ public class rollCollect : MonoBehaviour
 	}
 
 	// helper function to choose which sound to play depending on size of ball
-	AudioSource chooseSound(){
-		if(transform.childCount <= 10){
-			if(large.isPlaying){
-				large.Stop();
+	AudioSource chooseSound ()
+	{
+		if (transform.childCount <= 10) {
+			if (large.isPlaying) {
+				large.Stop ();
 			}
 			return medium;
-		}
-		else{
-			if(medium.isPlaying){
-				medium.Stop();
+		} else {
+			if (medium.isPlaying) {
+				medium.Stop ();
 			}
 			return large;
 		}

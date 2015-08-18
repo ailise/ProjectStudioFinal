@@ -20,6 +20,8 @@ public class gameOverText : MonoBehaviour
 	{
 		humanScoreScript humanScoreScript = GetComponent<humanScoreScript> ();
 		ballScoreScript ballScoreScript = GetComponent<ballScoreScript> ();
+
+		
 		if (humanScoreScript.humanScore > ballScoreScript.ballScore) {
 		
 			text.text = "Human Players Win!\nPress 'R' to Restart!";
@@ -53,6 +55,13 @@ public class gameOverText : MonoBehaviour
 			Application.LoadLevel ("mainGroupPrototype");	// this is crashing the game
 			
 		}
+	
+	}
+	
+	void humansRolled ()
+	{
+	
+		text.text = "Ball Player Wins!";
 	
 	}
 }
